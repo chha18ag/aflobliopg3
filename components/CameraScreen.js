@@ -1,14 +1,12 @@
 //Rebecca
 
-import { StatusBar } from 'expo-status-bar';
+//importerer fra react-native samt lokale filer
 import React from 'react';
-import firebase from 'firebase';
-import { StyleSheet, Text, View, Platform, SafeAreaView, Linking, FlatList, Button, Image } from 'react-native';
-import Header from "./Header";
-
+import { StyleSheet, Text, View, SafeAreaView, Linking, Button, Image } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
-import * as MediaLibrary from 'expo-media-library';
+
+import Header from "./Header";
 
 export default class CameraScreen extends React.Component {
 
@@ -27,19 +25,19 @@ export default class CameraScreen extends React.Component {
         this.updateCameraRollPermission();
     }
 
-    /*Få adgang til kamera*/
+    //adgang til kamera
     updateCameraPermission = async () => {
         const { status } = await Permissions.askAsync(Permissions.CAMERA);
         this.setState({ hasCameraPermission: status === 'granted' });
     };
 
-    /*Få adgang til galleri*/
+    //adgang til galleri
     updateCameraRollPermission = async () => {
         const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
         this.setState({ hasCameraRollPermission: status === 'granted' });
     };
 
-    /*Tag et billde*/
+    //gør det muligt at tage et billde og gemme det som det seneste billede
     handleTakePhoto = async () => {
         if (!this.cameraRef.current) {
             return;
@@ -48,7 +46,7 @@ export default class CameraScreen extends React.Component {
         this.setState({ lastPhoto: result.uri });
     };
 
-    /*Skift imellem for og bag*/
+    //gør det muligt at skifte imellem for- og bagkamera
     handleChangeCamera = () =>{
         if(this.state.isClicked){
             this.setState({cameraPosition:Camera.Constants.Type.front})
@@ -59,16 +57,19 @@ export default class CameraScreen extends React.Component {
         }
     }
 
-    /*Gå til indstillinger og få permission*/
+    //åbner indstillinger på telefonen for at få permission til kameraet
     handleSettingLink = () =>{
         Linking.openSettings()
     }
 
     renderCameraView() {
+        //hvis cameraPermission er lig null, renders ingenting
         const { hasCameraPermission, type } = this.state;
         if (hasCameraPermission === null) {
             return <View />;
         }
+        /*såfremt cameraPermission er lig false har man mulighed for at trykke på en knap for at få adgang,
+        herefter vil ens indstillinger på telefonen åbnes hvor man kan give tilladelse til at kameraet benyttes*/
         if (hasCameraPermission === false) {
             return (
                 <View>
@@ -77,6 +78,8 @@ export default class CameraScreen extends React.Component {
                 </View>
             );
         }
+        /*når permission er true, vil viewet returnes og man har mulighed for at tage et billede
+        og ændre imellem for- og bagkamera ved hjælp af knapperne*/
         return (
             <View>
                 <Camera
@@ -90,6 +93,7 @@ export default class CameraScreen extends React.Component {
         );
     }
 
+    //gør det muligt at vise det seneste billede
     renderLastPhoto() {
         // Her vises det seneste billede
         const { lastPhoto } = this.state;
@@ -104,7 +108,7 @@ export default class CameraScreen extends React.Component {
         );
     }
 
-    /*Main renderr*/
+    //main render
     render() {
 
         return (
@@ -120,6 +124,7 @@ export default class CameraScreen extends React.Component {
 
 }
 
+//al styling
 const containerStyle = {
     padding: 5,
     borderRadius: 10,

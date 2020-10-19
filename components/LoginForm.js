@@ -10,19 +10,6 @@ import {
 } from 'react-native';
 import firebase from 'firebase';
 
-const styles = StyleSheet.create({
-    error: {
-        color: 'red',
-    },
-    inputField: {
-        borderWidth: 1,
-        margin: 10,
-        padding: 10,
-    },
-    header: {
-        fontSize: 40,
-    },
-});
 
 export default class SignUpForm extends React.Component {
     state = {
@@ -63,7 +50,7 @@ export default class SignUpForm extends React.Component {
         }
         return (
             <View>
-                <Text style={styles.header}>Login up</Text>
+                <Text style={styles.header}>Login</Text>
                 <TextInput
                     placeholder="email"
                     value={email}
@@ -93,3 +80,20 @@ export default class SignUpForm extends React.Component {
         return <Button onPress={this.handleSubmit} title="Login" />;
     };
 }
+
+const styles = StyleSheet.create({
+    error: {
+        color: 'red',
+    },
+    inputField: {
+        borderWidth: 2,
+        margin: 10,
+        padding: 10,
+    },
+    header: {
+        fontSize: 40,
+        marginTop: 20,
+        marginLeft: 10,
+        marginBottom:10,
+    },
+});

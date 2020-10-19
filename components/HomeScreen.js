@@ -1,73 +1,52 @@
+//importerer fra react-native og lokale filer
 import React, { Component } from 'react'
-import {View, Text, StyleSheet, Button,TouchableOpacity, Alert} from 'react-native';
-import firebase from 'firebase';
+import {View, Text, StyleSheet,} from 'react-native';
 import Header from "./Header";
+
 export default class HomeScreen extends Component {
 
     state={
-        clicked:false,
-        btnTitle:'Tryk på mig!!!',
         email: null
     };
 
-    onPress = () => {
-        if(!this.state.clicked){
-            this.setState({
-                btnTitle: 'Den skal være grøn',
-                clicked: true
-            })
-        }else {
-            this.setState({
-                btnTitle: 'Den skal være blå',
-                clicked: false
-            })
-        }
-    };
-
+//kalder navigationen i viewet og tilføjer tekst
     render() {
-
         const { navigation } = this.props;
         return (
             <View style={styles.mainContainer}>
                 <Header navigation={this.props.navigation} title='HomeScreen'/>
-                <View style={styles.textContainer}>
-                    <TouchableOpacity
-                        style={[styles.btn,this.state.clicked ? styles.blue : styles.green]}
-                        onPress={this.onPress} >
-                        <Text style={styles.btn_txt}> {this.state.btnTitle}</Text>
-                    </TouchableOpacity>
-
-
-                </View>
+                <Text style={styles.text2}>VELKOMMEN{"\n"}</Text>
+                <Text style={styles.text}>DENNE APP ER TIL DIG, SOM ØNSKER EN HVERDAG HVOR PLANLÆGNINGEN AF UGENS INDKØBSTUR, IKKE KRÆVER SÅ MEGET.{"\n"}</Text>
+                <Text style={styles.text}>UDFORSK NAVIGATIONSBAREN I VENSTRE SIDE, FOR AT FÅ EN FORNEMMELSE AF HVAD APP'EN KOMMER TIL AT KUNNE TILBYDE DIG.{"\n"}</Text>
             </View>
         );
     }
 }
 
+//styling
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         width: '100%'
     },
-    btn:{
-        padding:40,
-        borderRadius:10
-    },
-    btn_txt:{
-        color:'white'
-    },
-    blue:{
-        backgroundColor:'blue',
-    },
-    green:{
-        backgroundColor:'green',
-    },
-    textContainer: {
-        flex: 0.1,
-        marginTop: 200,
+    container: {
+        justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
+        padding: 10,
+    },
+    text: {
+        color: 'black',
+        fontSize: 15,
+        paddingRight:20,
+        paddingLeft: 20,
+    },
+    text2: {
+        color: 'black',
+        fontSize: 25,
+        paddingRight:20,
+        paddingLeft: 20,
+        alignItems: 'center',
+        marginTop: 35,
     },
 });
-
 

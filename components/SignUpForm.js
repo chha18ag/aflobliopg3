@@ -8,20 +8,6 @@ import {Button,Text,
 } from 'react-native';
 import firebase from 'firebase';
 
-const styles = StyleSheet.create({
-    error: {
-        color: 'red',
-    },
-    inputField: {
-        borderWidth: 1,
-        margin: 10,
-        padding: 10,
-    },
-    header: {
-        fontSize: 40,
-    },
-});
-
 export default class SignUpForm extends React.Component {
     state = {
         email: '',
@@ -94,3 +80,21 @@ export default class SignUpForm extends React.Component {
         return <Button onPress={this.handleSubmit} title="Create user" />;
     };
 }
+
+const styles = StyleSheet.create({
+    error: {
+        color: 'red',
+    },
+    inputField: {
+        borderWidth: 2,
+        margin: 10,
+        padding: 10,
+    },
+    header: {
+        fontSize: 40,
+        marginTop: 30,
+        marginLeft: 10,
+        marginBottom:10,
+
+    },
+});

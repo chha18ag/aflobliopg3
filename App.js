@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import Constants from 'expo-constants';
 import { StyleSheet,ScrollView, Text, View,TouchableOpacity, AsyncStorage } from 'react-native';
-
-import SignUpForm from './components/SignUpForm';
 import firebase from 'firebase';
+import { Card } from 'react-native-paper';
+import {createAppContainer} from "react-navigation";
+import {createDrawerNavigator} from "react-navigation-drawer";
+
+//Lokale filer
+import SignUpForm from './components/SignUpForm';
 import LoginForm from "./components/LoginForm";
 import ProfilScreen from "./components/ProfilScreen";
-import {createAppContainer} from "react-navigation";
 import HomeScreen from "./components/HomeScreen";
-import {createDrawerNavigator} from "react-navigation-drawer";
 import GroceryListScreen from "./components/GroceryListScreen";
 import CameraScreen from "./components/CameraScreen";
-import { Card } from 'react-native-paper';
 import MapScreen from "./components/MapScreen";
 
 const fireBaseConfig ={
