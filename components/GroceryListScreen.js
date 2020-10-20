@@ -8,7 +8,6 @@ import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity } from 
 import Note from './Note';
 import Header from "./Header";
 
-
 export default class GroceryListScreen extends React.Component {
 
     //opretter en constructor der kører hver gang kompenenten kører i appen

@@ -30,7 +30,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(fireBaseConfig);
 }
 
-
+//Navigation Drawer
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeScreen,
