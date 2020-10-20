@@ -1,17 +1,22 @@
-import * as React from 'react';
+//Mads
+
+//Importerer fra react-native
+import React from 'react';
 import { Text, View, StyleSheet, Button, SafeAreaView } from 'react-native';
 import Constants from 'expo-constants';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import {Accuracy, getCurrentPositionAsync} from "expo-location";
+
+//Importerer lokale filer
 import Header from "./Header";
 
-//opretter classe
+//Opretter classe
 export default class MapScreen extends React.Component {
     mapViewRef = React.createRef();
 
-    //opretter en række states for at tjekke følgende:
+    //Opretter en række states for at tjekke følgende:
     state = {
         //Undersøger om der er tilladelse til lokation
         hasLocationPermission: null,
@@ -55,7 +60,8 @@ export default class MapScreen extends React.Component {
     closeInfoBox = () =>
         this.setState({ selectedCoordinate: null, selectedAddress: null });
 
-
+    //Funktion til at tjekke om der er tilladelse til at finde lokation til bruger,
+    //samt gør det muligt at opdaterer sin lokation
     renderCurrentLocation = () => {
         const { hasLocationPermission, currentLocation } = this.state;
         if (hasLocationPermission === null) {
@@ -77,6 +83,8 @@ export default class MapScreen extends React.Component {
             </View>
         );
     };
+
+    //Render funktioner der opstillet kortet, samt sætter nogle pre kodet Markers på kortet
     render() {
         const {userMarkerCoordinates, selectedCoordinate, selectedAddress,
             currentLocation,} = this.state;
@@ -103,7 +111,6 @@ export default class MapScreen extends React.Component {
                             title="Fakta"
                             description="Nærmeste Fakta nær CBS"
                         />
-
 
                     </MapView>
                     {selectedCoordinate && (
