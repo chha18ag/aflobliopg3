@@ -1,3 +1,4 @@
+//Lavet af Thomas
 import React, {Component} from 'react';
 import Constants from 'expo-constants';
 import { StyleSheet,ScrollView, Text, View,TouchableOpacity, AsyncStorage } from 'react-native';
@@ -86,7 +87,7 @@ export default class App extends React.Component {
 
 
 }
-
+//Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,

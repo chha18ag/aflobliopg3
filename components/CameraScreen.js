@@ -12,11 +12,14 @@ export default class CameraScreen extends React.Component {
 
     cameraRef = React.createRef();
 
+//opretter en række states der bruges når man klikker på en bestemt knap
     state = {
+        //Undersøger om der er tilladelse til kameraet
         hasCameraPermission: null,
         isClicked:false,
         cameraPosition:Camera.Constants.Type.front,
         lastPhoto:'',
+        //Undersøger om der er tilladelse til galleriet
         hasCameraRollPermission: null,
     };
 
@@ -112,6 +115,7 @@ export default class CameraScreen extends React.Component {
     render() {
 
         return (
+            //Kalder navigationen
             <View style={styles.container}>
                 <Header navigation={this.props.navigation} title='Camera'/>
 
@@ -177,4 +181,3 @@ const styles = StyleSheet.create({
         margin: 5
     },
 });
-

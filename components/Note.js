@@ -18,7 +18,6 @@ export default class Note extends React.Component {
     /*
     Laver nedenfor layout for noter
     Bliver oprettet en "key" med props. For at sikre hvilke elementer der bliver oprettet og opdateret
-
      */
     render () {
         return (
