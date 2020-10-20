@@ -1,13 +1,11 @@
+//Mads
+
+//Importerer fra react-native
 import * as React from 'react';
-import {Button,Text,
-    View,
-    TextInput,
-    ActivityIndicator,
-    StyleSheet,
-    Alert,
-} from 'react-native';
+import {Button,Text, View, TextInput, ActivityIndicator, StyleSheet, Alert,} from 'react-native';
 import firebase from 'firebase';
 
+//Opretter klasse
 export default class SignUpForm extends React.Component {
     state = {
         email: '',
@@ -16,15 +14,17 @@ export default class SignUpForm extends React.Component {
         isCompleted: false,
         errorMessage: null,
     };
-
+    //Opretter funktioner der håndterer loading og fejl
     startLoading = () => this.setState({ isLoading: true });
     endLoading = () => this.setState({ isLoading: false });
     setError = errorMessage => this.setState({ errorMessage });
     clearError = () => this.setState({ errorMessage: null });
 
+    //Funktioner der sætter email og password
     handleChangeEmail = email => this.setState({ email });
     handleChangePassword = password => this.setState({ password });
 
+    //Funktion der opretter brugeren i firebase med email og password
     handleSubmit = async () => {
         const { email, password } = this.state;
         try {
@@ -43,6 +43,7 @@ export default class SignUpForm extends React.Component {
         }
     };
 
+    //Render funktion der opretter layout og textfelter.
     render = () => {
         const { errorMessage, email, password, isCompleted } = this.state;
         if (isCompleted) {
@@ -71,7 +72,7 @@ export default class SignUpForm extends React.Component {
             </View>
         );
     };
-
+    //Knap der tillader at oprette bruger ved at kalde handleSubmit funktionen
     renderButton = () => {
         const { isLoading } = this.state;
         if (isLoading) {
@@ -81,6 +82,7 @@ export default class SignUpForm extends React.Component {
     };
 }
 
+//styling
 const styles = StyleSheet.create({
     error: {
         color: 'red',
