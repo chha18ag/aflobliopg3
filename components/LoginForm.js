@@ -1,3 +1,5 @@
+//Thomas
+
 import * as React from 'react';
 import {
     Button,
@@ -19,15 +21,18 @@ export default class SignUpForm extends React.Component {
         isCompleted: false,
         errorMessage: null,
     };
-
+    //Opretter funktioner, som håndterer loadings, samt evt. fejl.
     startLoading = () => this.setState({ isLoading: true });
     endLoading = () => this.setState({ isLoading: false });
     setError = errorMessage => this.setState({ errorMessage });
     clearError = () => this.setState({ errorMessage: null });
 
+    //Opretter funktioner, som sætter email og password
     handleChangeEmail = email => this.setState({ email });
     handleChangePassword = password => this.setState({ password });
 
+    //Opretter en funktion, som håndterer de indtastede oplysninger, her email og password og
+    // returnerer en fejl, hvis koden er skrevet forkert.
     handleSubmit = async () => {
         const { email, password } = this.state;
         try {
@@ -42,7 +47,7 @@ export default class SignUpForm extends React.Component {
             this.endLoading();
         }
     };
-
+    //Render funktion, som opretter tekstfelter og design.
     render = () => {
         const { errorMessage, email, password, isCompleted } = this.state;
         if (isCompleted) {
@@ -71,7 +76,7 @@ export default class SignUpForm extends React.Component {
             </View>
         );
     };
-
+    //Knap som gør det muligt for brugeren af logge ind ved at kalde funktionen handleSubmit
     renderButton = () => {
         const { isLoading } = this.state;
         if (isLoading) {
@@ -80,7 +85,7 @@ export default class SignUpForm extends React.Component {
         return <Button onPress={this.handleSubmit} title="Login" />;
     };
 }
-
+//Styling
 const styles = StyleSheet.create({
     error: {
         color: 'red',
