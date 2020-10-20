@@ -1,3 +1,4 @@
+//Fælles indsats
 //importerer fra react-native og lokale filer
 import React, { Component } from 'react'
 import {View, Text, StyleSheet,} from 'react-native';
@@ -49,4 +50,3 @@ const styles = StyleSheet.create({
         marginTop: 35,
     },
 });
-
