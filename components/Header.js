@@ -1,17 +1,19 @@
 //Thomas
-
 import React,{Component} from 'react'
 import {Text,View,StyleSheet,TouchableOpacity} from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import firebase from 'firebase';
+
 
 export default class Header extends Component {
+    //Opretter handlenavigatoren
     handleNavigation = () => {
         this.props.navigation.openDrawer()
     }
+
     render() {
         const {title}= this.props
         return(
+            //Opretter en trykbar knap med navigationsmuligheder
             <View style={styles.container}>
                 <TouchableOpacity style={styles.icon} onPress={this.handleNavigation}>
                     <MaterialCommunityIcons name="forwardburger" size={30} color="black" />
@@ -22,7 +24,7 @@ export default class Header extends Component {
         )
     }
 }
-
+//Styling
 const styles = StyleSheet.create({
     container:{
         display:'flex',
@@ -44,23 +46,3 @@ const styles = StyleSheet.create({
         paddingRight:66
     }
 })
-
-/*
-const styles = StyleSheet.create({
-    header: {
-        width: '100%',
-        height: '18%',
-        borderBottomWidth: 8,
-        borderBottomColor: "#ddd",
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#90A4AE'
-    },
-    text: {
-        fontSize: 18,
-        letterSpacing: 1.1,
-        fontWeight: 'bold',
-        color: '#fff'
-    }
-})
-*/
