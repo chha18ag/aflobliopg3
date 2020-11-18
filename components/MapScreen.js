@@ -90,7 +90,7 @@ export default class MapScreen extends React.Component {
             currentLocation,} = this.state;
         return (
             <View style={styles.container}>
-                <Header navigation={this.props.navigation} title='Map'/>
+                <Header navigation={this.props.navigation} title='Kort over Fitness centrer'/>
                 <SafeAreaView style={styles.container}>
                     {this.renderCurrentLocation()}
                     <MapView
@@ -102,14 +102,14 @@ export default class MapScreen extends React.Component {
                     >
 
                         <Marker
-                            coordinate={{ latitude: 55.6871392, longitude: 12.5410327 }}
-                            title="Kvickly"
-                            description="Nærmeste Kvickly nær CBS"
+                            coordinate={{ latitude: 55.706611, longitude: 12.587258 }}
+                            title="Fitness World Århusgade"
+                            description="Fitness World Århusgade"
                         />
                         <Marker
-                            coordinate={{ latitude: 55.6891108, longitude: 12.5416765 }}
-                            title="Fakta"
-                            description="Nærmeste Fakta nær CBS"
+                            coordinate={{ latitude: 55.711584, longitude: 12.560460 }}
+                            title="Fitness World Lyngbyvej"
+                            description="Fitness World Lyngbyvej"
                         />
 
                     </MapView>

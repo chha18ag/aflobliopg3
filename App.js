@@ -12,8 +12,8 @@ import SignUpForm from './components/SignUpForm';
 import LoginForm from "./components/LoginForm";
 import ProfilScreen from "./components/ProfilScreen";
 import HomeScreen from "./components/HomeScreen";
-import GroceryListScreen from "./components/GroceryListScreen";
-import CameraScreen from "./components/CameraScreen";
+//import GroceryListScreen from "./components/GroceryListScreen";
+//import CameraScreen from "./components/CameraScreen";
 import MapScreen from "./components/MapScreen";
 
 const fireBaseConfig ={
@@ -36,12 +36,12 @@ const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeScreen,
   },
-  GroceryList:{
-    screen: GroceryListScreen
-  },
-  Camera:{
-    screen:CameraScreen
-  },
+  //GroceryList:{
+    //screen: GroceryListScreen
+  //},
+  //Camera:{
+    //screen:CameraScreen
+  //},
   Map:{
     screen:MapScreen
   },

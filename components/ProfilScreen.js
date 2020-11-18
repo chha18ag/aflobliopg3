@@ -2,7 +2,7 @@
 
 //importerer fra react-native samt lokale filer
 import * as React from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Button, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import firebase from 'firebase';
 import Header from "./Header";
 
@@ -37,9 +37,10 @@ export default class ProfilScreen extends React.Component {
         else {
             return (
                 <View style={styles.container}>
-                    <Header navigation={this.props.navigation} title='ProfileScreen'/>
+                    <Header navigation={this.props.navigation} title='Min profil og indstillinger'/>
                     <Text>Current user: {currentUser.email}</Text>
                     <Text style={styles.text}>{"\n"}</Text>
+                    <Image source={require('../components/setting.jpg')}/>
                     <Button onPress={this.handleLogOut} title="Log out" />
                     <Button style={styles.btn} title="Personal Details"  />
                     <Button style={styles.btn} title="Latest Grocery Lists"  />
@@ -55,6 +56,7 @@ export default class ProfilScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        alignItems: 'center',
     },
     text: {
         color: 'black',

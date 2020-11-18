@@ -1,8 +1,12 @@
 //Fælles indsats
 //importerer fra react-native og lokale filer
 import React, { Component } from 'react'
-import {View, Text, StyleSheet,} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import Header from "./Header";
+import Swiper from 'react-native-swiper';
+
+
+
 
 export default class HomeScreen extends Component {
 
@@ -15,10 +19,19 @@ export default class HomeScreen extends Component {
         const { navigation } = this.props;
         return (
             <View style={styles.mainContainer}>
-                <Header navigation={this.props.navigation} title='HomeScreen'/>
-                <Text style={styles.text2}>VELKOMMEN{"\n"}</Text>
-                <Text style={styles.text}>DENNE APP ER TIL DIG, SOM ØNSKER EN HVERDAG HVOR PLANLÆGNINGEN AF UGENS INDKØBSTUR, IKKE KRÆVER SÅ MEGET.{"\n"}</Text>
-                <Text style={styles.text}>UDFORSK NAVIGATIONSBAREN I VENSTRE SIDE, FOR AT FÅ EN FORNEMMELSE AF HVAD APP'EN KOMMER TIL AT KUNNE TILBYDE DIG.{"\n"}</Text>
+                <Header navigation={this.props.navigation} title='Find fitness buddy'/>
+
+                <Swiper style={styles.wrapper} showsButtons={true}>
+                    <View style={styles.slide1}>
+                        <Image source={require('../components/fitguy1.jpg')}/>
+                    </View>
+                    <View style={styles.slide2}>
+                        <Image source={require('../components/fitgirl1.jpg')}/>
+                    </View>
+                    <View style={styles.slide3}>
+                        <Image source={require('../components/fitguy2.jpg')}/>
+                    </View>
+                </Swiper>
             </View>
         );
     }
@@ -48,5 +61,25 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         alignItems: 'center',
         marginTop: 35,
+    },
+    wrapper: {
+    },
+    slide1: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+    },
+    slide2: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+    },
+    slide3: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
     },
 });
